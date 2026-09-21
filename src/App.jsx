@@ -229,9 +229,9 @@ export default function App() {
             <QuickForm />
           </div>
           <div className="max-w-[1120px] mx-auto px-4 sm:px-5 grid md:grid-cols-[1.15fr_.85fr] gap-3 md:gap-4 items-stretch mt-5 md:mt-4">
-            <a href="#why" className="flex items-center gap-3 bg-[rgba(250,245,235,.08)] border border-[rgba(255,201,60,.3)] rounded-xl p-2 px-3 no-underline hover:border-bulb transition min-h-[44px]">
-              <img src="/derrick-thumb.jpg" srcSet="/derrick-thumb-256.jpg 256w, /derrick-thumb.jpg 512w" sizes="64px" width="96" height="96" alt="Derrick — Owner of Grounded Power Electric" className="bulb-glow w-12 h-12 sm:w-16 sm:h-16 object-cover object-center rounded-[10px] shrink-0" />
-              <div className="min-w-0"><strong className="text-cream text-sm sm:text-base">Meet Derrick, Owner</strong><br /><small className="text-[#cbbd9f] text-xs leading-snug block">Grounded Power Electric, LLC • “Rooted in Quality Service”</small></div>
+            <a href="#why" className="flex items-center gap-3.5 bg-[rgba(250,245,235,.08)] border border-[rgba(255,201,60,.3)] rounded-xl p-3 px-3.5 no-underline hover:border-bulb transition min-h-[44px]">
+              <img src="/derrick-thumb.jpg" srcSet="/derrick-thumb-256.jpg 256w, /derrick-thumb.jpg 512w" sizes="96px" width="96" height="96" alt="Derrick — Owner of Grounded Power Electric" className="bulb-glow w-16 h-16 sm:w-24 sm:h-24 object-cover object-center rounded-[14px] shrink-0" />
+              <div className="min-w-0"><strong className="text-cream">Meet Derrick, Owner</strong><br /><small className="text-[#cbbd9f] leading-snug block">Grounded Power Electric, LLC • “Rooted in Quality Service”</small></div>
             </a>
             <div className="grid gap-2.5 content-between">
               {[['Licensed Contractor','Bonded & Insured'],['BBB Accredited','Locally Owned & Operated'],['Residential & Commercial','Rental Properties Welcome']].map(([a,b]) => (
