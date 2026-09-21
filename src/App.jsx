@@ -242,7 +242,7 @@ export default function App() {
         </section>
 
         <section className="bg-leafdark text-white font-extrabold">
-          <div className="max-w-[1120px] mx-auto px-4 sm:px-5 py-2.5 flex gap-x-4 gap-y-1.5 justify-start sm:justify-between flex-wrap text-[.8rem] sm:text-sm leading-snug">
+          <div className="max-w-[1120px] mx-auto px-4 sm:px-5 py-2.5 grid grid-cols-2 sm:flex sm:flex-wrap gap-x-4 gap-y-1.5 justify-start sm:justify-between text-[.8rem] sm:text-sm leading-snug">
             <span>✓ Licensed Electrical Contractor</span><span>✓ Bonded &amp; Insured</span><span>✓ BBB Accredited Business</span><span>✓ Locally Owned &amp; Operated</span><span className="hidden md:inline">✓ Residential &amp; Commercial</span>
           </div>
         </section>
@@ -285,7 +285,7 @@ export default function App() {
                   <li key={t} className="pl-7 relative leading-snug"><span className="absolute left-0 text-leaf font-black">✓</span><span dangerouslySetInnerHTML={{ __html: t.replace(/^([^—]+)/, '<strong>$1</strong>') }} /></li>
                 ))}
               </ul>
-              <div className="flex gap-x-6 gap-y-3 mt-4 flex-wrap">
+              <div className="flex flex-col sm:flex-row gap-x-6 gap-y-3 mt-4 sm:flex-wrap">
                 <div><strong className="text-xl sm:text-2xl block text-bulb">Licensed</strong><span className="text-[#b9a888] text-sm">Electrical Contractor</span></div>
                 <div><strong className="text-xl sm:text-2xl block text-bulb">BBB</strong><span className="text-[#b9a888] text-sm">Accredited Business</span></div>
                 <div><strong className="text-xl sm:text-2xl block text-bulb">Local</strong><span className="text-[#b9a888] text-sm">Owned &amp; Operated</span></div>
