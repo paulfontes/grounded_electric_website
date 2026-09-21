@@ -285,7 +285,7 @@ export default function App() {
                   <li key={t} className="pl-7 relative leading-snug"><span className="absolute left-0 text-leaf font-black">✓</span><span dangerouslySetInnerHTML={{ __html: t.replace(/^([^—]+)/, '<strong>$1</strong>') }} /></li>
                 ))}
               </ul>
-              <div className="flex flex-col sm:flex-row gap-x-6 gap-y-3 mt-4 sm:flex-wrap">
+              <div className="grid grid-cols-3 gap-2 sm:gap-6 mt-4 text-center sm:text-left">
                 <div><strong className="text-xl sm:text-2xl block text-bulb">Licensed</strong><span className="text-[#b9a888] text-sm">Electrical Contractor</span></div>
                 <div><strong className="text-xl sm:text-2xl block text-bulb">BBB</strong><span className="text-[#b9a888] text-sm">Accredited Business</span></div>
                 <div><strong className="text-xl sm:text-2xl block text-bulb">Local</strong><span className="text-[#b9a888] text-sm">Owned &amp; Operated</span></div>
