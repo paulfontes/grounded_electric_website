@@ -74,11 +74,13 @@ function QuickForm() {
     if (sending || sent) return
     setError(false)
     setSending(true)
+    const form = e.currentTarget
     try {
-      const data = new FormData(e.target)
+      const data = new FormData(form)
       data.append('form-name', 'quick-estimate')
       const res = await fetch('/', { method: 'POST', body: data })
       if (!res.ok) throw new Error('submit failed')
+      form.reset()
       setSent(true)
     } catch {
       setError(true)
@@ -125,11 +127,13 @@ function MainForm() {
     if (sending || sent) return
     setError(false)
     setSending(true)
+    const form = e.currentTarget
     try {
-      const data = new FormData(e.target)
+      const data = new FormData(form)
       data.append('form-name', 'quote-request')
       const res = await fetch('/', { method: 'POST', body: data })
       if (!res.ok) throw new Error('submit failed')
+      form.reset()
       setSent(true)
     } catch {
       setError(true)
