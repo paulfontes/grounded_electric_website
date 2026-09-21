@@ -221,9 +221,9 @@ export default function App() {
               <p className="text-[#FFE9A8] font-bold mt-3 mb-0 text-base sm:text-lg">Grounded in Quality. Powered by Service.</p>
               <p className="text-[#e8dcc3] text-base sm:text-lg mt-2">Residential &amp; Commercial Electrical Services Serving Irmo, Columbia, Lexington and the Surrounding Midlands.</p>
               <p className="text-[#d8cbaa] text-[.95rem] sm:text-base">Locally owned electrical contractor specializing primarily in residential work, with commercial services for businesses, landlords, property managers, and contractors.</p>
-              <div className="flex flex-col min-[480px]:flex-row gap-3 my-5">
-                <a href={PHONE_HREF} className="bg-bulb text-bark font-bold rounded-[10px] px-6 py-4 text-base sm:text-lg hover:bg-white transition min-h-[52px] inline-flex items-center justify-center text-center flex-1 min-[480px]:flex-none">📞 Call {PHONE}</a>
-                <a href="#quote" className="border border-[#8a7d68] text-cream rounded-[10px] px-6 py-4 text-base sm:text-lg hover:border-cream transition min-h-[52px] inline-flex items-center justify-center text-center flex-1 min-[480px]:flex-none">Request an Estimate →</a>
+              <div className="flex flex-row gap-2.5 sm:gap-3 my-5">
+                <a href={PHONE_HREF} className="bg-bulb text-bark font-bold rounded-[10px] px-3 sm:px-6 py-4 text-sm min-[400px]:text-base sm:text-lg hover:bg-white transition min-h-[52px] inline-flex items-center justify-center text-center flex-1">📞 Call {PHONE}</a>
+                <a href="#quote" className="border border-[#8a7d68] text-cream rounded-[10px] px-3 sm:px-6 py-4 text-sm min-[400px]:text-base sm:text-lg hover:border-cream transition min-h-[52px] inline-flex items-center justify-center text-center flex-1">Request an Estimate →</a>
               </div>
             </div>
             <QuickForm />
