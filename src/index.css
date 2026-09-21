@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #FAF5EB;
+  --color-cream2: #F3EAD6;
+  --color-bark: #3B2314;
+  --color-bark2: #5A3A1F;
+  --color-ink: #231709;
+  --color-bulb: #FFC93C;
+  --color-amberbrand: #E9A600;
+  --color-amberdeep: #9C6B00;
+  --color-leaf: #4E9B2F;
+  --color-leafdark: #2F6B1A;
+  --color-night: #1d1208;
+  --color-night2: #2a1c0e;
+  --font-slab: "Zilla Slab", Georgia, "Times New Roman", serif;
+  --font-sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+/* offset anchor jumps so the sticky header doesn't cover section headings */
+section[id] { scroll-margin-top: 88px; }
+@media (min-width: 768px) {
+  section[id] { scroll-margin-top: 104px; }
+}
+
+body {
+  background-color: var(--color-cream);
+  background-image: radial-gradient(rgba(59,35,20,.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+  -webkit-tap-highlight-color: rgba(255, 201, 60, .25);
+}
+
+img, svg, iframe { max-width: 100%; }
+img { height: auto; }
+
+h1, h2 { text-wrap: balance; }
+p, li { overflow-wrap: break-word; }
+
+/* Prevent iOS auto-zoom on focus: inputs must stay >= 16px on mobile */
+@media (max-width: 767px) {
+  input, select, textarea { font-size: 16px !important; }
+}
+
+/* Comfortable focus rings for touch + keyboard users */
+a:focus-visible, button:focus-visible, summary:focus-visible,
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--color-bulb);
+  outline-offset: 2px;
+}
+
+.font-slab { font-family: var(--font-slab); }
+
+/* lit bulb halo behind tree mark */
+.bulb-glow {
+  border: 2px solid var(--color-bulb);
+  box-shadow: 0 0 45px rgba(255,201,60,.55), 0 0 90px rgba(255,201,60,.25);
+}
+
+details > summary { cursor: pointer; }

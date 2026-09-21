@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 190">
+  <!-- rays -->
+  <g stroke="#9C6B00" stroke-width="5" stroke-linecap="round">
+    <line x1="110" y1="6" x2="110" y2="22"/>
+    <line x1="70" y1="22" x2="78" y2="36"/>
+    <line x1="150" y1="22" x2="142" y2="36"/>
+    <line x1="44" y1="52" x2="58" y2="58"/>
+    <line x1="176" y1="52" x2="162" y2="58"/>
+    <line x1="36" y1="86" x2="52" y2="86"/>
+    <line x1="184" y1="86" x2="168" y2="86"/>
+  </g>
+  <!-- bulb glass -->
+  <path d="M110 30 C82 30 64 51 64 76 C64 92 72 103 82 112 L82 122 L138 122 L138 112 C148 103 156 92 156 76 C156 51 138 30 110 30 Z" fill="#FFC93C" stroke="#3B2314" stroke-width="5"/>
+  <path d="M84 62 C84 50 92 42 100 40" fill="none" stroke="#FFE9A8" stroke-width="7" stroke-linecap="round"/>
+  <!-- filament -->
+  <path d="M98 112 L98 84 C98 76 106 76 106 82 C106 88 114 88 114 82 C114 76 122 76 122 84 L122 112" fill="none" stroke="#C67F00" stroke-width="5" stroke-linecap="round"/>
+  <!-- socket / trunk top -->
+  <rect x="82" y="122" width="56" height="16" rx="4" fill="#3B2314"/>
+  <line x1="90" y1="128" x2="130" y2="126" stroke="#FAF6ED" stroke-width="3" stroke-linecap="round"/>
+  <line x1="90" y1="133" x2="122" y2="131" stroke="#FAF6ED" stroke-width="3" stroke-linecap="round"/>
+  <!-- trunk -->
+  <path d="M102 138 L100 162 C100 170 120 170 120 162 L118 138 Z" fill="#3B2314"/>
+  <!-- branches -->
+  <path d="M103 148 C88 144 76 138 66 128" fill="none" stroke="#3B2314" stroke-width="7" stroke-linecap="round"/>
+  <path d="M117 148 C132 144 144 138 154 128" fill="none" stroke="#3B2314" stroke-width="7" stroke-linecap="round"/>
+  <!-- leaves left -->
+  <g fill="#4E9B2F" stroke="#2F6B1A" stroke-width="2.5">
+    <ellipse cx="58" cy="122" rx="13" ry="8" transform="rotate(-20 58 122)"/>
+    <ellipse cx="62" cy="104" rx="13" ry="8" transform="rotate(-35 62 104)"/>
+    <ellipse cx="78" cy="94" rx="12" ry="8" transform="rotate(-60 78 94)"/>
+    <ellipse cx="90" cy="100" rx="11" ry="7" transform="rotate(-70 90 100)"/>
+    <ellipse cx="58" cy="140" rx="13" ry="8" transform="rotate(15 58 140)"/>
+  </g>
+  <!-- leaves right -->
+  <g fill="#4E9B2F" stroke="#2F6B1A" stroke-width="2.5">
+    <ellipse cx="162" cy="122" rx="13" ry="8" transform="rotate(20 162 122)"/>
+    <ellipse cx="158" cy="104" rx="13" ry="8" transform="rotate(35 158 104)"/>
+    <ellipse cx="142" cy="94" rx="12" ry="8" transform="rotate(60 142 94)"/>
+    <ellipse cx="130" cy="100" rx="11" ry="7" transform="rotate(70 130 100)"/>
+    <ellipse cx="162" cy="140" rx="13" ry="8" transform="rotate(-15 162 140)"/>
+  </g>
+  <!-- roots -->
+  <g stroke="#3B2314" stroke-width="4" stroke-linecap="round" fill="none">
+    <path d="M110 164 C100 172 86 176 66 178"/>
+    <path d="M110 164 C104 172 96 178 84 182"/>
+    <path d="M110 164 L110 184"/>
+    <path d="M110 164 C116 172 124 178 136 182"/>
+    <path d="M110 164 C120 172 134 176 154 178"/>
+    <path d="M110 164 C92 170 60 170 40 164"/>
+    <path d="M110 164 C128 170 160 170 180 164"/>
+  </g>
+</svg>
