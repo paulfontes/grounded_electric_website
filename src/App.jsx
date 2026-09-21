@@ -67,12 +67,32 @@ const FAQS = [
 
 function QuickForm() {
   const [sent, setSent] = useState(false)
+  const [error, setError] = useState(false)
+  const [sending, setSending] = useState(false)
+  const onSubmit = async (e) => {
+    e.preventDefault()
+    if (sending || sent) return
+    setError(false)
+    setSending(true)
+    try {
+      const data = new FormData(e.target)
+      data.append('form-name', 'quick-estimate')
+      const res = await fetch('/', { method: 'POST', body: data })
+      if (!res.ok) throw new Error('submit failed')
+      setSent(true)
+    } catch {
+      setError(true)
+    } finally {
+      setSending(false)
+    }
+  }
   return (
     <div className="bg-cream text-ink rounded-2xl p-4 sm:p-5 shadow-[0_20px_60px_rgba(0,0,0,.35)] border-t-[6px] border-leafdark w-full min-w-0">
       <h3 className="font-slab text-xl text-bark m-0">Request an estimate</h3>
       <p className="text-sm text-[#6b5d45] mt-1 mb-3">We strive to respond to inquiries as quickly as possible during normal business hours ({HOURS}).</p>
-      <form className="grid gap-2.5" onSubmit={(e) => { e.preventDefault(); setSent(true) }}>
-        <select required defaultValue="" className="w-full px-3 py-3.5 min-h-[48px] text-base border border-[#d9cbae] rounded-[10px] bg-white">
+      <form name="quick-estimate" className="grid gap-2.5" onSubmit={onSubmit}>
+        <p className="hidden"><label>Don’t fill this out if you’re human: <input name="bot-field" tabIndex={-1} autoComplete="off" /></label></p>
+        <select name="service" required defaultValue="" className="w-full px-3 py-3.5 min-h-[48px] text-base border border-[#d9cbae] rounded-[10px] bg-white">
           <option value="" disabled>What do you need?</option>
           <option>Panel / meter / service upgrade</option>
           <option>Troubleshooting / repair</option>
@@ -83,22 +103,43 @@ function QuickForm() {
           <option>Lighting / ceiling fan / fixtures</option>
           <option>Rental / commercial work</option>
         </select>
-        <input placeholder="ZIP code (ex. 29063)" inputMode="numeric" pattern="[0-9]{5}" required className="w-full px-3 py-3.5 min-h-[48px] text-base border border-[#d9cbae] rounded-[10px] bg-white" />
-        <input type="tel" inputMode="tel" autoComplete="tel" placeholder="Phone number" required className="w-full px-3 py-3.5 min-h-[48px] text-base border border-[#d9cbae] rounded-[10px] bg-white" />
-        <button className="bg-amberbrand text-bark font-bold border-2 border-bark rounded-[10px] px-5 py-4 min-h-[52px] text-base hover:bg-bulb transition w-full" type="submit">
-          {sent ? 'Sent ✓' : 'Schedule Service'}
+        <input name="zip" placeholder="ZIP code (ex. 29063)" inputMode="numeric" pattern="[0-9]{5}" required className="w-full px-3 py-3.5 min-h-[48px] text-base border border-[#d9cbae] rounded-[10px] bg-white" />
+        <input name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="Phone number" required className="w-full px-3 py-3.5 min-h-[48px] text-base border border-[#d9cbae] rounded-[10px] bg-white" />
+        <button className="bg-amberbrand text-bark font-bold border-2 border-bark rounded-[10px] px-5 py-4 min-h-[52px] text-base hover:bg-bulb transition w-full disabled:opacity-70" type="submit" disabled={sending}>
+          {sending ? 'Sending…' : sent ? 'Sent ✓' : 'Schedule Service'}
         </button>
         <small className="text-[#6b5d45] leading-snug">✓ A real local electrician will get back to you. For fastest scheduling, call <a href={PHONE_HREF} className="font-bold whitespace-nowrap">{PHONE}</a>.</small>
       </form>
       {sent && <div className="bg-[#eef7e6] border border-[#9cc184] text-[#234d12] p-3 rounded-[10px] mt-2">✓ Got it! We&apos;ll be in touch during business hours. Need to talk sooner? Call <a href={PHONE_HREF}>{PHONE}</a>.</div>}
+      {error && <div className="bg-[#fdeceb] border border-[#e8a09a] text-[#7a241d] p-3 rounded-[10px] mt-2">Something went wrong sending that — please try again or call <a href={PHONE_HREF} className="font-bold">{PHONE}</a>.</div>}
     </div>
   )
 }
 
 function MainForm() {
   const [sent, setSent] = useState(false)
+  const [error, setError] = useState(false)
+  const [sending, setSending] = useState(false)
+  const onSubmit = async (e) => {
+    e.preventDefault()
+    if (sending || sent) return
+    setError(false)
+    setSending(true)
+    try {
+      const data = new FormData(e.target)
+      data.append('form-name', 'quote-request')
+      const res = await fetch('/', { method: 'POST', body: data })
+      if (!res.ok) throw new Error('submit failed')
+      setSent(true)
+    } catch {
+      setError(true)
+    } finally {
+      setSending(false)
+    }
+  }
   return (
-    <form id="mainForm" className="bg-[#fffdf6] border-2 border-bark rounded-2xl p-4 sm:p-5 grid gap-3 shadow-[0_12px_40px_rgba(59,35,20,.15)] w-full min-w-0" onSubmit={(e) => { e.preventDefault(); setSent(true) }}>
+    <form name="quote-request" id="mainForm" className="bg-[#fffdf6] border-2 border-bark rounded-2xl p-4 sm:p-5 grid gap-3 shadow-[0_12px_40px_rgba(59,35,20,.15)] w-full min-w-0" onSubmit={onSubmit}>
+      <p className="hidden"><label>Don’t fill this out if you’re human: <input name="bot-field" tabIndex={-1} autoComplete="off" /></label></p>
       <div className="grid sm:grid-cols-2 gap-3">
         <input name="name" autoComplete="name" placeholder="Full name *" required className="px-3 py-3.5 min-h-[48px] text-base border border-[#d9cbae] rounded-[10px] bg-white w-full" />
         <input name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="Phone *" required className="px-3 py-3.5 min-h-[48px] text-base border border-[#d9cbae] rounded-[10px] bg-white w-full" />
@@ -127,10 +168,11 @@ function MainForm() {
         <option>Just getting project information</option>
       </select>
       <textarea name="message" rows={4} placeholder="Describe the project... ex. 'Need panel replacement in Irmo, home built 1985' or 'EV charger in garage in Lexington'" className="px-3 py-3.5 min-h-[96px] text-base border border-[#d9cbae] rounded-[10px] bg-white w-full" />
-      <label className="border border-dashed border-[#b9a888] rounded-[10px] p-3 text-sm text-[#5c4f3d]">📷 Add photo (optional, helps us understand the job)<input type="file" accept="image/*" className="block mt-2 w-full min-h-[44px]" /></label>
-      <button className="bg-amberbrand text-bark font-bold border-2 border-bark rounded-[10px] px-5 py-4 min-h-[56px] text-base sm:text-lg hover:bg-bulb transition w-full" type="submit">{sent ? 'Sent ✓' : 'Send Request →'}</button>
-      <small className="text-[#8a7d68]">Submitting is demo-mode for now. Connect to Formspree / Netlify Forms to go live. No spam, ever.</small>
+      <label className="border border-dashed border-[#b9a888] rounded-[10px] p-3 text-sm text-[#5c4f3d]">📷 Add photo (optional, helps us understand the job)<input name="photo" type="file" accept="image/*" className="block mt-2 w-full min-h-[44px]" /></label>
+      <button className="bg-amberbrand text-bark font-bold border-2 border-bark rounded-[10px] px-5 py-4 min-h-[56px] text-base sm:text-lg hover:bg-bulb transition w-full disabled:opacity-70" type="submit" disabled={sending}>{sending ? 'Sending…' : sent ? 'Sent ✓' : 'Send Request →'}</button>
+      <small className="text-[#8a7d68]">We’ll get back to you during business hours. No spam, ever.</small>
       {sent && <div className="bg-[#eef7e6] border border-[#9cc184] text-[#234d12] p-3 rounded-[10px]">✓ Request received! We&apos;ll be in touch during normal business hours. Prefer to talk? Call <a href={PHONE_HREF}>{PHONE}</a>.</div>}
+      {error && <div className="bg-[#fdeceb] border border-[#e8a09a] text-[#7a241d] p-3 rounded-[10px]">Something went wrong sending that — please try again or call <a href={PHONE_HREF} className="font-bold">{PHONE}</a>.</div>}
     </form>
   )
 }

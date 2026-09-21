@@ -33,6 +33,28 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Netlify Forms detection stubs: the visible forms render client-side in
+         React and submit via fetch, so these hidden static copies let Netlify
+         register the forms at deploy time. Field names must match App.jsx. -->
+    <form name="quick-estimate" netlify netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="quick-estimate" />
+      <input name="bot-field" />
+      <select name="service"></select>
+      <input name="zip" />
+      <input name="phone" />
+    </form>
+    <form name="quote-request" netlify netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="quote-request" />
+      <input name="bot-field" />
+      <input name="name" />
+      <input name="phone" />
+      <input name="email" />
+      <input name="zip" />
+      <select name="service"></select>
+      <select name="timing"></select>
+      <textarea name="message"></textarea>
+      <input name="photo" type="file" />
+    </form>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
