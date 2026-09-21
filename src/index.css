@@ -36,7 +36,10 @@ body {
 }
 
 img, svg, iframe { max-width: 100%; }
-img { height: auto; }
+/* NOTE: do not add `img { height: auto }` here — unlayered CSS beats
+   Tailwind v4 utilities and breaks fixed heights (h-48 etc.), causing
+   layout shift that throws off mobile anchor scrolling. Preflight
+   already preserves aspect ratios for images without a height class. */
 
 h1, h2 { text-wrap: balance; }
 p, li { overflow-wrap: break-word; }

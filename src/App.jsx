@@ -284,7 +284,7 @@ export default function App() {
                 ['/work-commercial-conduit.jpg', 'Commercial Work', 'Disconnects and conduit runs'],
               ].map(([src, a, b]) => (
                 <figure key={src} className="rounded-xl overflow-hidden border-2 border-bark bg-[#fffdf6] shadow-[0_4px_18px_rgba(59,35,20,.1)] m-0 min-w-0">
-                  <img src={src} alt={`${a} — Grounded Power Electric`} loading="lazy" className="w-full h-48 sm:h-56 object-cover block" />
+                  <img src={src} alt={`${a} — Grounded Power Electric`} loading="lazy" decoding="async" width="900" height="1200" className="w-full h-48 sm:h-56 object-cover block" />
                   <figcaption className="p-3 text-center font-bold text-bark text-[.95rem] sm:text-base">{a}<br /><small className="font-normal text-[#5c4f3d]">{b}</small></figcaption>
                 </figure>
               ))}
