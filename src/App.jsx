@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { trackLead } from './analytics.js'
 
 const PHONE = '(803) 935-2280'
 const PHONE_HREF = 'tel:+18039352280'
@@ -82,6 +83,7 @@ function QuickForm() {
       if (!res.ok) throw new Error('submit failed')
       form.reset()
       setSent(true)
+      trackLead('quick-estimate')
     } catch {
       setError(true)
     } finally {
@@ -135,6 +137,7 @@ function MainForm() {
       if (!res.ok) throw new Error('submit failed')
       form.reset()
       setSent(true)
+      trackLead('quote-request')
     } catch {
       setError(true)
     } finally {
