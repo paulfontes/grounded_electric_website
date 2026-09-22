@@ -10,6 +10,7 @@ const SERVICE_TOWN = 'Irmo, SC 29063'
 const GOOGLE_REVIEWS = 'https://www.google.com/maps/place/Grounded+Power+Electric+LLC/@33.9609697,-81.4134854,10z/data=!3m1!4b1!4m6!3m5!1s0xa35e7c6c1e27368d:0x6331efae935c8f2f!8m2!3d33.9608395!4d-81.0838459!16s%2Fg%2F11z2vx7dzc?entry=ttu'
 const BBB_PROFILE = 'https://www.bbb.org/us/sc/irmo/profile/electrician/grounded-power-electric-llc-0663-34353059/#sealclick'
 const BBB_SEAL_IMG = 'https://seal-columbia.bbb.org/seals/blue-seal-293-61-bbb-34353059.png'
+const BBB_SOCIAL_HORIZONTAL = '/bbb-accredited-horizontal.jpg'
 
 const REVIEWS = [
   { text: 'Derrick was timely, professional, and his electrical work was well-priced. I had several outlets and fixtures that weren\u2019t working and he managed to trouble shoot and fix them all. I felt at ease having Derrick in my home while I was working remotely and highly recommend him should you need an electrician.', name: 'Kristen Puckett', meta: 'Google review • Local Guide' },
@@ -404,6 +405,10 @@ export default function App() {
               ))}
             </div>
             <p className="text-center mt-5"><a href={GOOGLE_REVIEWS} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-full min-[480px]:w-auto bg-amberbrand text-bark font-bold border-2 border-bark rounded-[10px] px-5 py-4 min-h-[52px] hover:bg-bulb transition no-underline text-center">See all reviews / Review us on Google →</a></p>
+            <a href={BBB_PROFILE} target="_blank" rel="nofollow noreferrer" aria-label="Grounded Power Electric BBB Accredited Business profile" className="block mt-5 rounded-2xl overflow-hidden border-2 border-bark shadow-[0_4px_18px_rgba(59,35,20,.12)] hover:shadow-[0_8px_30px_rgba(59,35,20,.22)] transition">
+              <img src={BBB_SOCIAL_HORIZONTAL} alt="We're proud to be a BBB Accredited Business — Grounded Power Electric, LLC" loading="lazy" decoding="async" width="1600" height="840" className="w-full h-auto block" />
+            </a>
+            <p className="text-center text-sm text-[#8a7d68] mt-2">Verified BBB Accredited Business — <a href={BBB_PROFILE} target="_blank" rel="nofollow noreferrer" className="text-leafdark font-bold">view our BBB profile →</a></p>
           </div>
         </section>
 
