@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { trackLead } from './analytics.js'
 
 const PHONE = '(803) 935-2280'
@@ -184,8 +184,48 @@ function MainForm() {
   )
 }
 
+function PrivacyPage() {
+  return (
+    <div className="max-w-[760px] mx-auto px-4 sm:px-5 py-12">
+      <p className="text-leafdark font-extrabold uppercase tracking-[.12em] text-xs mb-2">Privacy Policy</p>
+      <h1 className="font-slab font-bold text-[clamp(1.8rem,5vw,2.6rem)] text-bark m-0">Privacy Policy</h1>
+      <p className="text-[#5c4f3d] text-sm mt-2">Last updated: September 2026</p>
+      <div className="mt-6 space-y-5 text-[#3d3428]">
+        <section>
+          <h2 className="font-slab text-xl text-bark">Information we collect</h2>
+          <p>When you request an estimate through our forms, we collect your name, phone number, email address (optional), ZIP code, and project details — including any photos you choose to upload. Our analytics tool (Google Analytics 4, when enabled) collects anonymous usage data such as pages visited and device type.</p>
+        </section>
+        <section>
+          <h2 className="font-slab text-xl text-bark">How we use it</h2>
+          <p>We use your information only to respond to your request, schedule and perform electrical work, and improve this website. We do not sell, rent, or share your personal information with third parties for marketing.</p>
+        </section>
+        <section>
+          <h2 className="font-slab text-xl text-bark">Service providers</h2>
+          <p>This site is hosted by Netlify and form submissions are processed by Netlify Forms. Analytics, when enabled, is provided by Google. These providers handle data under their own privacy policies.</p>
+        </section>
+        <section>
+          <h2 className="font-slab text-xl text-bark">Your choices</h2>
+          <p>You can ask us to correct or delete your information at any time by contacting us below. You can disable cookies in your browser settings; the site will still work.</p>
+        </section>
+        <section>
+          <h2 className="font-slab text-xl text-bark">Contact us</h2>
+          <p>Grounded Power Electric, LLC<br />Based in {SERVICE_TOWN}<br /><a href={`mailto:${EMAIL}`} className="text-leafdark font-bold break-all">{EMAIL}</a><br /><a href={PHONE_HREF} className="text-leafdark font-bold">{PHONE}</a></p>
+        </section>
+      </div>
+      <p className="mt-8"><a href="#top" className="text-leafdark font-bold">← Back to homepage</a></p>
+    </div>
+  )
+}
+
 export default function App() {
   const [navOpen, setNavOpen] = useState(false)
+  const [route, setRoute] = useState(() => window.location.hash)
+  useEffect(() => {
+    const onHash = () => { setRoute(window.location.hash); window.scrollTo(0, 0) }
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [])
+  const isPrivacy = route === '#/privacy'
   return (
     <div id="top">
       <div className="bg-bark text-white text-center text-xs sm:text-sm font-semibold px-3 py-2 leading-snug">
@@ -213,6 +253,7 @@ export default function App() {
         </div>
       </header>
 
+      {isPrivacy ? (<main><PrivacyPage /></main>) : (
       <main>
         <section className="text-cream py-10 md:py-8 border-b-[6px] border-leafdark" style={{ background: 'radial-gradient(520px 300px at 18% 30%,rgba(255,201,60,.22),transparent 70%),radial-gradient(640px 240px at 88% 8%,rgba(255,233,168,.28),transparent 70%),linear-gradient(180deg,#140d05,#3B2314)' }}>
           <div className="max-w-[1120px] mx-auto px-4 sm:px-5 grid md:grid-cols-[1.15fr_.85fr] gap-6 md:gap-4 items-start">
@@ -419,6 +460,7 @@ export default function App() {
           </div>
         </section>
       </main>
+      )}
 
       <footer className="bg-[#170e04] text-[#d8cbaa] pt-8 md:pt-6 pb-32 md:pb-8 border-t-[6px] border-bark">
         <div className="max-w-[1120px] mx-auto px-4 sm:px-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-5 text-center sm:text-left">
@@ -427,7 +469,7 @@ export default function App() {
           <div className="text-[.95rem] leading-relaxed"><strong className="text-white">Services</strong><br />Panels &amp; Meters • Troubleshooting<br />Lighting &amp; Fans • EV &amp; Generators<br />Rewiring • Rentals • Commercial</div>
           <div className="text-[.95rem] leading-relaxed"><strong className="text-white">Company</strong><br />Licensed Electrical Contractor<br />Bonded &amp; Insured<br />BBB Accredited Business<br />Locally Owned &amp; Operated</div>
         </div>
-        <div className="max-w-[1120px] mx-auto px-4 sm:px-5 mt-5 pt-4 border-t border-[#3a2a15] text-sm text-center sm:text-left">© 2026 Grounded Power Electric, LLC. All rights reserved. • {WEBSITE} • {PHONE}</div>
+        <div className="max-w-[1120px] mx-auto px-4 sm:px-5 mt-5 pt-4 border-t border-[#3a2a15] text-sm text-center sm:text-left">© 2026 Grounded Power Electric, LLC. All rights reserved. • {WEBSITE} • {PHONE} • <a href="#/privacy" className="underline underline-offset-2 hover:text-white">Privacy Policy</a></div>
       </footer>
 
       <a className="md:hidden fixed left-4 right-4 bg-bark text-bulb text-center px-4 py-4 rounded-[14px] font-black no-underline shadow-[0_10px_30px_rgba(0,0,0,.35)] z-[60] border-2 border-bulb min-h-[56px] inline-flex items-center justify-center" style={{ bottom: 'calc(0.875rem + env(safe-area-inset-bottom))' }} href={PHONE_HREF}>📞 Call {PHONE}</a>
