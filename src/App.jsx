@@ -8,6 +8,8 @@ const EMAIL = 'derrickgpelectric@gmail.com'
 const HOURS = 'Monday–Friday, 8:00 AM–5:00 PM'
 const SERVICE_TOWN = 'Irmo, SC 29063'
 const GOOGLE_REVIEWS = 'https://www.google.com/maps/place/Grounded+Power+Electric+LLC/@33.9609697,-81.4134854,10z/data=!3m1!4b1!4m6!3m5!1s0xa35e7c6c1e27368d:0x6331efae935c8f2f!8m2!3d33.9608395!4d-81.0838459!16s%2Fg%2F11z2vx7dzc?entry=ttu'
+const BBB_PROFILE = 'https://www.bbb.org/us/sc/irmo/profile/electrician/grounded-power-electric-llc-0663-34353059/#sealclick'
+const BBB_SEAL_IMG = 'https://seal-columbia.bbb.org/seals/blue-seal-293-61-bbb-34353059.png'
 
 const REVIEWS = [
   { text: 'Derrick was timely, professional, and his electrical work was well-priced. I had several outlets and fixtures that weren\u2019t working and he managed to trouble shoot and fix them all. I felt at ease having Derrick in my home while I was working remotely and highly recommend him should you need an electrician.', name: 'Kristen Puckett', meta: 'Google review • Local Guide' },
@@ -287,7 +289,7 @@ export default function App() {
 
         <section className="bg-leafdark text-white font-extrabold">
           <div className="max-w-[1120px] mx-auto px-4 sm:px-5 py-2.5 grid grid-cols-2 sm:flex sm:flex-wrap gap-x-4 gap-y-1.5 justify-start sm:justify-between text-[.8rem] sm:text-sm leading-snug">
-            <span>✓ Licensed Electrical Contractor</span><span>✓ Bonded &amp; Insured</span><span>✓ BBB Accredited Business</span><span>✓ Locally Owned &amp; Operated</span><span className="hidden md:inline">✓ Residential &amp; Commercial</span>
+            <span>✓ Licensed Electrical Contractor</span><span>✓ Bonded &amp; Insured</span><a href={BBB_PROFILE} target="_blank" rel="nofollow noreferrer" className="underline underline-offset-2 decoration-bulb/60 hover:text-bulb">✓ BBB Accredited Business</a><span>✓ Locally Owned &amp; Operated</span><span className="hidden md:inline">✓ Residential &amp; Commercial</span>
           </div>
         </section>
         <div className="bg-cream leading-none pt-1.5" aria-hidden="true">
@@ -340,6 +342,11 @@ export default function App() {
               <h3 className="font-slab text-bark mt-3 mb-1">Derrick</h3>
               <p className="text-sm sm:text-base mt-0">Owner, Grounded Power Electric, LLC<br />“Rooted in Quality Service”</p>
               <a className="inline-flex items-center justify-center w-full sm:w-auto bg-amberbrand text-bark font-bold border-2 border-bark rounded-[10px] px-5 py-3.5 min-h-[52px] hover:bg-bulb transition" href="#quote">Schedule Service →</a>
+              <div className="mt-3 flex justify-center">
+                <a href={BBB_PROFILE} target="_blank" rel="nofollow noreferrer" aria-label="Grounded Power Electric BBB Business Review">
+                  <img src={BBB_SEAL_IMG} style={{ border: 0 }} alt="Grounded Power Electric, LLC BBB Business Review" width="200" height="42" loading="lazy" className="mx-auto w-[200px] h-auto" />
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -467,7 +474,7 @@ export default function App() {
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left min-w-0"><img src="/logo.png" alt="Grounded Power Electric — full logo" className="w-full max-w-[240px] sm:max-w-[280px] h-auto bg-cream rounded-[14px] p-2.5 border-2 border-bulb shadow-[0_0_35px_rgba(255,201,60,.2)]" /><p className="mt-2 text-[.95rem]">“Rooted in Quality Service.”<br />Irmo / Columbia, SC • Residential &amp; Commercial</p></div>
           <div className="text-[.95rem] leading-relaxed"><strong className="text-white">Contact</strong><br /><a href={PHONE_HREF} className="text-white font-bold whitespace-nowrap inline-block min-h-[44px] py-1">{PHONE}</a><br /><a href={`mailto:${EMAIL}`} className="text-white break-all">✉️ {EMAIL}</a><br /><span>{WEBSITE}</span><br />Based in {SERVICE_TOWN}<br />{HOURS}</div>
           <div className="text-[.95rem] leading-relaxed"><strong className="text-white">Services</strong><br />Panels &amp; Meters • Troubleshooting<br />Lighting &amp; Fans • EV &amp; Generators<br />Rewiring • Rentals • Commercial</div>
-          <div className="text-[.95rem] leading-relaxed"><strong className="text-white">Company</strong><br />Licensed Electrical Contractor<br />Bonded &amp; Insured<br />BBB Accredited Business<br />Locally Owned &amp; Operated</div>
+          <div className="text-[.95rem] leading-relaxed"><strong className="text-white">Company</strong><br />Licensed Electrical Contractor<br />Bonded &amp; Insured<br />Locally Owned &amp; Operated<br /><a href={BBB_PROFILE} target="_blank" rel="nofollow noreferrer" aria-label="Grounded Power Electric BBB Business Review" className="inline-block mt-2 bg-white rounded-md px-2 py-1.5 mx-auto sm:mx-0"><img src={BBB_SEAL_IMG} style={{ border: 0 }} alt="Grounded Power Electric, LLC BBB Business Review" width="220" height="46" loading="lazy" className="w-[220px] h-auto" /></a></div>
         </div>
         <div className="max-w-[1120px] mx-auto px-4 sm:px-5 mt-5 pt-4 border-t border-[#3a2a15] text-sm text-center sm:text-left">© 2026 Grounded Power Electric, LLC. All rights reserved. • {WEBSITE} • {PHONE} • <a href="#/privacy" className="underline underline-offset-2 hover:text-white">Privacy Policy</a></div>
       </footer>
